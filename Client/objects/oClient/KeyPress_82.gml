@@ -3,3 +3,6 @@
 if (keyboard_check(vk_control)) {
 	connect()
 }
+//else if (keyboard_check(vk_shift)) {
+//	sendRestart()
+//}

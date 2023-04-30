@@ -25,6 +25,9 @@ else {
             entity = entity.default;
             
             global.entities.push(entity);
+            if (entity.manager) {
+                global.manager_entities.push(entity);
+            }
             
             resolve(entity);
         });

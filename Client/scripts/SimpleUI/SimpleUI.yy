@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Scripts",
-    "path": "folders/Warp Demo/SimpleUI/Scripts.yy",
+    "path": "folders/Game/SimpleUI/Scripts.yy",
   },
 }

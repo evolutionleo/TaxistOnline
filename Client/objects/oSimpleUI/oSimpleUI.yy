@@ -11,7 +11,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "SimpleUI",
-    "path": "folders/Warp Demo/SimpleUI.yy",
+    "path": "folders/Game/SimpleUI.yy",
   },
   "parentObjectId": null,
   "persistent": true,

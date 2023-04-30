@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 // a thing
 class Entity extends EventEmitter {
+    static manager = false;
     static type = 'Unknown';
     static object_name = 'oUnknownEntity';
     type;
@@ -149,7 +150,8 @@ class Entity extends EventEmitter {
                 this.collider = null;
                 throw 'Unknown collider type: ' + this.collider_type;
         }
-        
+
+        this.collider.setOffset({ x: -this.width/2, y: -this.height/2 });
         this.collider.entity = this;
     }
     
@@ -173,6 +175,7 @@ class Entity extends EventEmitter {
         // }
         this.collider.setAngle(this.angle);
         this.collider.setPosition(x, y);
+        this.collider.setOffset({ x: -this.width/2, y: -this.height/2 });
         this.tree.updateBody(this.collider);
     }
     

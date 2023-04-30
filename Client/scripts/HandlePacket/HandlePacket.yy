@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "cmd",
-    "path": "folders/Warp/Scripts/cmd.yy",
+    "path": "folders/Game/Scripts/cmd.yy",
   },
 }

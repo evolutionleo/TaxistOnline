@@ -5,10 +5,8 @@ export default new GameMap({
     room_name: 'rTest',
     description: 'A test map, a placeholder if you will',
     
-    width: 1366,
-    height: 768,
-    
-    // content_string: '',
+    width: 3840,
+    height: 2160,
     
     spawn_type: 'random',
     start_pos: [

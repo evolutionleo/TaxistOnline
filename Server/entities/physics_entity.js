@@ -5,8 +5,8 @@ import { clamp, approach } from '#util/maths';
 export default class PhysicsEntity extends Entity {
     physicsEnabled = true;
     
-    grv = { x: 0, y: 800 };
-    max_spd = { x: 2000, y: 2000 };
+    grv = { x: 0, y: 0 };
+    max_spd = { x: 20000, y: 20000 };
     
     outside_room_action = 'stop';
     collision_type = 'discrete'; // discrete or continuout

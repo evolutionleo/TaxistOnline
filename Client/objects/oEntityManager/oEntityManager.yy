@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Managers",
-    "path": "folders/Warp/Objects/Managers.yy",
+    "path": "folders/Game/Objects/Managers.yy",
   },
   "parentObjectId": null,
   "persistent": true,

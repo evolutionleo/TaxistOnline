@@ -28,7 +28,7 @@
   "origin": 0,
   "parent": {
     "name": "Gameplay",
-    "path": "folders/Warp Demo/Sprites/Gameplay.yy",
+    "path": "folders/Game/Sprites/Gameplay.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

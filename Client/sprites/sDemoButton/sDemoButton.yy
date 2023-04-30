@@ -26,7 +26,7 @@
   "origin": 4,
   "parent": {
     "name": "UI",
-    "path": "folders/Warp Demo/Sprites/UI.yy",
+    "path": "folders/Game/Sprites/UI.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

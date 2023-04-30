@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Custom",
-    "path": "folders/Warp Demo/SimpleUI/Scripts/SimpleUI Elements/Custom.yy",
+    "path": "folders/Game/SimpleUI/Scripts/SimpleUI Elements/Custom.yy",
   },
 }

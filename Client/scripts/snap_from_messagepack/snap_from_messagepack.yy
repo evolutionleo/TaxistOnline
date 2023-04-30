@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Messagepack",
-    "path": "folders/Warp/Scripts/lib/Struct N' Array Parser/Messagepack.yy",
+    "path": "folders/Game/Scripts/lib/Struct N' Array Parser/Messagepack.yy",
   },
 }

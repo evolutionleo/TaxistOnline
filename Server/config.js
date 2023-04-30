@@ -95,7 +95,7 @@ const common_config = {
         use_persistent_position: false,
         
         starting_room: 'Test Room',
-        rest_timeout: 5,
+        rest_timeout: -1,
         // when no players are present for a certain amount of time
         // set to -1 to disable this feature
         // (!!! setting to 0 might cause problems and unexpected behaviour !!!)
@@ -107,7 +107,7 @@ const common_config = {
         max_members: 5 // max party size
     },
     
-    tps: 20,
+    tps: 30,
     
     // Disable some of the features that you don't need in your game
     // true = enabled, false = disabled
@@ -136,8 +136,8 @@ const prod_config = {
     },
     env_name: 'prod',
     ip: '0.0.0.0',
-    port: parseInt(args.port) || 1337,
-    ws_port: parseInt(args.ws_port) || 3000,
+    port: parseInt(args.port) || 2499,
+    ws_port: parseInt(args.ws_port) || 2500,
     
     
     room: {
@@ -176,7 +176,7 @@ const dev_config = {
     shell_enabled: true,
     verbose_lag: true,
     
-    initial_lobbies: 3
+    initial_lobbies: 1
 };
 
 

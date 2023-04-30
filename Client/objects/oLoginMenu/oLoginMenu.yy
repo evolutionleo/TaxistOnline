@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Menu",
-    "path": "folders/Warp Demo/Objects/Menu.yy",
+    "path": "folders/Game/Objects/Menu.yy",
   },
   "parentObjectId": null,
   "persistent": false,

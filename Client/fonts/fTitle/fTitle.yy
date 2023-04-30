@@ -239,7 +239,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Fonts",
-    "path": "folders/Warp Demo/Fonts.yy",
+    "path": "folders/Game/Fonts.yy",
   },
   "pointRounding": 0,
   "ranges": [

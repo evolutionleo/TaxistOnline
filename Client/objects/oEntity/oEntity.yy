@@ -11,7 +11,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Parents",
-    "path": "folders/Warp/Objects/Parents.yy",
+    "path": "folders/Game/Objects/Parents.yy",
   },
   "parentObjectId": null,
   "persistent": false,

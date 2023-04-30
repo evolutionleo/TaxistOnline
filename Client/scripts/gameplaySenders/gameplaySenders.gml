@@ -10,8 +10,6 @@ function sendPlayerControls() {
 		kup: kup,
 		kdown: kdown,
 		
-		kjump: kjump,
-		kjump_rel: kjump_rel,
-		kjump_press: kjump_press
+		kinteract: kinteract
 	})
 }

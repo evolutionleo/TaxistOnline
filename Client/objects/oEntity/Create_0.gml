@@ -7,8 +7,5 @@ __interpolation = {
 	x: INTERP.LINEAR,
 	y: INTERP.LINEAR,
 	
-	spd: {
-		x: INTERP.LINEAR,
-		y: INTERP.LINEAR
-	}
+	angle: INTERP.LINEAR
 }

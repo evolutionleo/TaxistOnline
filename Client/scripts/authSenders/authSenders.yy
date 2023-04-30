@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "senders",
-    "path": "folders/Warp/Scripts/cmd/senders.yy",
+    "path": "folders/Game/Scripts/cmd/senders.yy",
   },
 }

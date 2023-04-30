@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "lib",
-    "path": "folders/Warp/Scripts/lib.yy",
+    "path": "folders/Game/Scripts/lib.yy",
   },
 }

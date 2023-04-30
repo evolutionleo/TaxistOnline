@@ -61,7 +61,7 @@
   "packageId": "",
   "parent": {
     "name": "Extensions",
-    "path": "folders/Warp/Extensions.yy",
+    "path": "folders/Game/Extensions.yy",
   },
   "productId": "",
   "sourcedir": "",

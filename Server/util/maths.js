@@ -33,15 +33,35 @@ export function radtodeg(rad) {
 }
 
 export function lengthdir_x(len, dir) {
-    return Math.cos(degtorad(dir)) * len;
+    return Math.cos(degtorad(360-dir)) * len;
 }
 
 export function lengthdir_y(len, dir) {
-    return Math.sin(degtorad(dir)) * len;
+    return Math.sin(degtorad(360-dir)) * len;
 }
 
 export function lengthdir(len, dir) {
     return { x: lengthdir_x(len, dir), y: lengthdir_y(len, dir) };
+}
+
+export function vec_dir(x, y) {
+    return 360 - (Math.atan2(y, x) / Math.PI * 180);
+}
+
+export function vec_len(x, y) {
+    return Math.sqrt(x*x + y*y);
+}
+
+export function angle_normalize(a) {
+    a %= 360;
+    return a < 0 ? 360 + a : a;
+}
+
+export function angle_diff(a, b) {
+    let res = Math.abs(angle_normalize(a) - angle_normalize(b));
+    if (res > 180)
+        res = 360 - res;
+    return res;
 }
 
 

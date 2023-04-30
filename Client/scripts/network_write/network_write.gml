@@ -2,7 +2,7 @@
 ///@arg data
 ///@arg *socket
 // most of the time you just want to send the data to oClient.socket
-function network_write(data, sock = oClient.sock) {
+function network_write(data, sock = oClient.socket) {
 	if (!oClient.connected)
 		return -1
 	

@@ -29,7 +29,7 @@
   "origin": 3,
   "parent": {
     "name": "SimpleUI",
-    "path": "folders/Warp Demo/SimpleUI.yy",
+    "path": "folders/Game/SimpleUI.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

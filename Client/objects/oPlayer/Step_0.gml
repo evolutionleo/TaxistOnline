@@ -6,9 +6,7 @@ if (!remote) {
 	kdown = keyboard_check(ord("S")) || keyboard_check(vk_down)
 	kright = keyboard_check(ord("D")) || keyboard_check(vk_right)
 	
-	kjump = keyboard_check(vk_space)
-	kjump_press = keyboard_check_pressed(vk_space)
-	kjump_rel = keyboard_check_released(vk_space)
+	kinteract = keyboard_check(ord("E")) || keyboard_check(ord("Z"))
 	
 	move_x = kright - kleft
 	move_y = kdown - kup

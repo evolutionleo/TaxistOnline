@@ -4,7 +4,6 @@
   "name": "oPlayer",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":27,"eventType":9,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
@@ -12,7 +11,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Entities",
-    "path": "folders/Warp/Objects/Entities.yy",
+    "path": "folders/Game/Objects/Entities.yy",
   },
   "parentObjectId": {
     "name": "oPhysicsEntity",
@@ -34,8 +33,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sPlayer",
-    "path": "sprites/sPlayer/sPlayer.yy",
+    "name": "sCar1",
+    "path": "sprites/sCar1/sCar1.yy",
   },
   "spriteMaskId": null,
   "tags": [

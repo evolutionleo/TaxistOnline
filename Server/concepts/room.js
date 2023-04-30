@@ -5,6 +5,7 @@ import PlayerEntity from '#entities/entity_types/player';
 import { EventEmitter } from 'events';
 import chalk from 'chalk';
 import UnknownEntity from '#entity/unknown';
+import LiveUpdater from '#entity/live_updater';
 
 const tickrate = global.config.tps || 60;
 
@@ -48,6 +49,8 @@ class Room extends EventEmitter {
     
     last_tick_time = 0;
     dt = 0;
+
+    playing = false;
     
     constructor(map, lobby) {
         super();
@@ -79,6 +82,11 @@ class Room extends EventEmitter {
         
         setInterval(this.tick.bind(this), 1000 / this.tickrate);
         this.unwrap(this.map.contents); // || '[]');
+
+        for(let etype of global.manager_entities) {
+            this.spawnEntity(etype, 0, 0);
+        }
+        // this.livecoder = this.spawnEntity(LiveUpdater, 0, 0);
     }
     
     // create entities from the contents string
@@ -184,6 +192,7 @@ class Room extends EventEmitter {
             trace(chalk.red('lag detected: this tick took ' + t_tick + ' milliseconds.'));
         }
     }
+    
     spawnEntity(etype, x, y, client) {
         if (!global.config.entities_enabled) {
             console.error("Warning: Spawning entities is disabled globally! Room.spawnEntity() returning null. You can change this in config.js/ts");

@@ -8,16 +8,13 @@ addHandler('player controls', (c, data) => {
     
     c.entity.inputs = {
         move: data.move,
-        keys: {
-            kright: data.kright,
-            kleft: data.kleft,
-            kup: data.kup,
-            kdown: data.kdown,
-            
-            kjump: data.kjump,
-            kjump_rel: data.kjump_rel,
-            kjump_press: data.kjump_press
-        }
+        
+        kright: data.kright,
+        kleft: data.kleft,
+        kup: data.kup,
+        kdown: data.kdown,
+        
+        kinteract: data.kinteract
     };
     
     c.entity.inputs.move.x = clamp(c.entity.inputs.move.x, -1, 1);

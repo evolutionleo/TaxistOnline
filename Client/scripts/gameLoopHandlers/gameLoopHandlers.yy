@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "handlers",
-    "path": "folders/Warp/Scripts/cmd/handlers.yy",
+    "path": "folders/Game/Scripts/cmd/handlers.yy",
   },
 }

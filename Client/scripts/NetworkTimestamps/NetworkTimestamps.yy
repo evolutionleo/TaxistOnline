@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "util",
-    "path": "folders/Warp/Scripts/util.yy",
+    "path": "folders/Game/Scripts/util.yy",
   },
 }

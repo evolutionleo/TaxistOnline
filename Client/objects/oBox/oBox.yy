@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Entities",
-    "path": "folders/Warp/Objects/Entities.yy",
+    "path": "folders/Game/Objects/Entities.yy",
   },
   "parentObjectId": {
     "name": "oPhysicsEntity",
