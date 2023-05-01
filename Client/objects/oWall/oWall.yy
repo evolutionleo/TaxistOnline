@@ -36,5 +36,5 @@
   "tags": [
     "solid",
   ],
-  "visible": true,
+  "visible": false,
 }

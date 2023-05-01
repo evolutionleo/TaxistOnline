@@ -64,6 +64,11 @@ export function angle_diff(a, b) {
     return res;
 }
 
+export function arrayRandom(arr) {
+    let idx = Math.floor(Math.random() * arr.length);
+    return arr[idx];
+}
+
 
 // purely for people who don't know that you can just use Math.your_function_here()
 // if you are one of them and are reading this right now - please don't import the functions below, use Math.min(), etc. instead

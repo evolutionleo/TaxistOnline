@@ -1,6 +1,7 @@
 addHandler("play", function(data) {
 	trace("playing!")
 	global.playing = true
+	global.gameover_string = ""
 	
 	global.lobby = data.lobby // again, just to be safe + update the data
 	
@@ -56,5 +57,6 @@ addHandler("room transition", function(data) {
 
 
 addHandler("game over", function(data) {
-	show_message_async("Game over! " + string(data.reason) + " " + string(data.outcome))
+	global.gameover_string = string("{0}\n{1}", data.reason, data.outcome)
+	//show_message_async("Game over! " + string(data.reason) + " " + string(data.outcome))
 })

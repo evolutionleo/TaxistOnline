@@ -14,7 +14,7 @@ import MatchMaker from '#util/matchmaker';
 
 // this is a wrapper around sockets
 export default class Client extends SendStuff {
-    name = '';
+    name = 'Guest';
     /** @type {import('ws').WebSocket | import('net').Socket} */
     socket = null;
     /** @type {'ws' | 'tcp'} */
@@ -46,6 +46,8 @@ export default class Client extends SendStuff {
     ping;
     
     room_join_timer = -1; // if >0 - joined recently
+
+    score = 0;
     
     /** @type {boolean} */
     get logged_in() {
@@ -165,6 +167,10 @@ export default class Client extends SendStuff {
             }
             else { // just join the new room
                 room.addPlayer(this);
+            }
+
+            if (!this.room.playing) {
+                this.room.play();
             }
         }
         

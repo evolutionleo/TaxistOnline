@@ -9,7 +9,10 @@
     "name": "Entities",
     "path": "folders/Game/Objects/Entities.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oEntity",
+    "path": "objects/oEntity/oEntity.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -30,5 +33,5 @@
     "path": "sprites/sPassengerLeaveSpot/sPassengerLeaveSpot.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

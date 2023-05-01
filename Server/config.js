@@ -79,10 +79,10 @@ const common_config = {
     
     // some fundamental lobby settings
     lobby: {
-        max_players: 100,
-        addIntoPlayOnFull: false,
+        max_players: 2,
+        addIntoPlayOnFull: true,
         // false - add them one by one immediately as they join
-        closeOnLeave: false // close the lobby if a player leaves
+        closeOnLeave: true // close the lobby if a player leaves
     },
     
     room: {

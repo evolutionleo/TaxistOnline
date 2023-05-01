@@ -1,5 +1,6 @@
 import { addHandler } from "#cmd/handlePacket";
 import { lobbyExists } from "#concepts/lobby";
+import MatchMaker from "#util/matchmaker";
 
 
 addHandler('lobby list', (c) => {
@@ -16,6 +17,8 @@ addHandler('lobby join', (c, data) => {
     var lobbyid = data.lobbyid;
     if (lobbyExists(lobbyid))
         c.lobbyJoin(lobbyid);
+    else
+        c.lobbyJoin(MatchMaker.findNonfullLobby(c).lobbyid);
 });
 
 addHandler('lobby leave', (c, data) => {

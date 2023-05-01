@@ -1,10 +1,6 @@
 import fs from 'fs';
 import trace from '#util/logging';
 import Entity from '#concepts/entity';
-import { createRequire } from 'module';
-
-const require = createRequire(import.meta.url);
-global.require = require;
 
 export default class LiveUpdater extends Entity {
     static type = 'LiveUpdater';

@@ -8,9 +8,10 @@ export default new GameMap({
     width: 3840,
     height: 2160,
     
-    spawn_type: 'random',
+    spawn_type: 'distributed',
     start_pos: [
-        { x: 100, y: 100 }
+        { x: 1536, y: 1408 },
+        { x: 1536, y: 1472 }
     ],
     max_players: 99
 });

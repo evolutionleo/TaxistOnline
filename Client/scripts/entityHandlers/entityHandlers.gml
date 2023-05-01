@@ -39,12 +39,13 @@ addHandler("entity death", function(data) { // also triggers remove
 	// you can use this for death effects, etc.
 })
 
-
 addHandler("entity remove", function(data) {
 	if (use_timestamps(data))
 		return;
 	
 	trace("entity remove: %", data.id)
+	
+	global.removed_entities[$ data.id] = true
 	
 	var uuid = data.id
 	var obj = asset_get_index(data.obj)

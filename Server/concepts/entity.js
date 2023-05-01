@@ -2,6 +2,7 @@ import { EventEmitter } from "events";
 import { CircleCollider, BoxCollider, PolygonCollider } from '#concepts/collider';
 
 import { v4 as uuidv4 } from 'uuid';
+import Room from "./room.js";
 
 // a thing
 class Entity extends EventEmitter {
@@ -26,6 +27,9 @@ class Entity extends EventEmitter {
     
     base_size = { x: 64, y: 64 };
     scale = { x: 1, y: 1 };
+
+    /**@type {Room} */
+    room;
     
     
     // the custom variables that need sending with the entitiy
@@ -56,13 +60,9 @@ class Entity extends EventEmitter {
     tags = [];
     sendEveryTick = false; // either send every frame or only on change
     
-    room;
-    
     id;
     get uuid() { return this.id; }
-    ;
     set uuid(_uuid) { this.id = _uuid; }
-    ;
     
     
     constructor(room, x = 0, y = 0) {
@@ -120,9 +120,12 @@ class Entity extends EventEmitter {
                 break;
             case 'object':
             case 'function':
-                if (this instanceof type) {
-                    return true;
+                try {
+                    if (this === type || this instanceof type) {
+                        return true;
+                    }
                 }
+                catch(e) {}
                 break;
             default:
                 console.error('Warning: Unknown type of `type`: ' + typeof type);

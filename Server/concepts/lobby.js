@@ -122,6 +122,11 @@ export default class Lobby extends EventEmitter {
         
         // close if a player leaves from the lobby?
         if (global.config.lobby.closeOnLeave) {
+            this.rooms[0].gameOver(true, player.name);
+            // this.close();
+        }
+
+        if (this.players.length === 0) {
             this.close();
         }
     }
@@ -157,6 +162,7 @@ export default class Lobby extends EventEmitter {
     
     play() {
         var lobby = this;
+        this.status = 'playing';
         this.players.forEach(function (player) {
             lobby.addIntoPlay(player);
         });

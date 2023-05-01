@@ -1,5 +1,8 @@
 /// @desc
 
+global.removed_entities = {}
+
+
 // this is a singleton object
 if (instance_number(object_index) > 1) instance_destroy()
 

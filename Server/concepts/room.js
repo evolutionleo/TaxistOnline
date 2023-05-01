@@ -2,10 +2,13 @@ import trace from '#util/logging';
 import { System } from 'detect-collisions';
 
 import PlayerEntity from '#entities/entity_types/player';
+import Passenger from '#entity/passenger';
 import { EventEmitter } from 'events';
 import chalk from 'chalk';
 import UnknownEntity from '#entity/unknown';
 import LiveUpdater from '#entity/live_updater';
+import Client from '#concepts/client';
+import { arrayRandom } from '#util/maths';
 
 const tickrate = global.config.tps || 60;
 
@@ -33,6 +36,7 @@ class Room extends EventEmitter {
     tickrate = tickrate;
     entities = new EntityList();
     tree;
+    /** @type {Client[]} */
     players = [];
     
     tick_counter = 0; // counts 
@@ -51,6 +55,14 @@ class Room extends EventEmitter {
     dt = 0;
 
     playing = false;
+
+    /** @type {{x: number, y: number}[]} */
+    destinations = [];
+    /** @type {{x: number, y: number}[]} */
+    pickup_spots = [];
+
+    timer = null;
+
     
     constructor(map, lobby) {
         super();
@@ -84,9 +96,13 @@ class Room extends EventEmitter {
         this.unwrap(this.map.contents); // || '[]');
 
         for(let etype of global.manager_entities) {
-            this.spawnEntity(etype, 0, 0);
+            trace(this.spawnEntity(etype, 0, 0));
         }
-        // this.livecoder = this.spawnEntity(LiveUpdater, 0, 0);
+        
+        this.pickup_spots = this.entities.ofType('PickupSpot').map(e => ({ x: e.x, y: e.y }));
+        this.destinations = this.entities.ofType('LeaveSpot').map(e => ({ x: e.x, y: e.y }));
+
+        this.timer = this.entities.ofType('GameTimer')[0];
     }
     
     // create entities from the contents string
@@ -192,7 +208,7 @@ class Room extends EventEmitter {
             trace(chalk.red('lag detected: this tick took ' + t_tick + ' milliseconds.'));
         }
     }
-    
+
     spawnEntity(etype, x, y, client) {
         if (!global.config.entities_enabled) {
             console.error("Warning: Spawning entities is disabled globally! Room.spawnEntity() returning null. You can change this in config.js/ts");
@@ -240,6 +256,19 @@ class Room extends EventEmitter {
     }
     
     addPlayer(player) {
+        const nameExists = (name) => {
+            return this.players.some(p => p.name === name);
+        }
+
+        // duplicate names?
+        if (nameExists(player.name)) {
+            let i = 2;
+            while(nameExists(player.name + i.toString())) {
+                i += 1;
+            }
+            player.name += i.toString();
+        }
+
         this.players.push(player);
         player.room = this;
         
@@ -284,6 +313,42 @@ class Room extends EventEmitter {
     broadcast(packet) {
         this.players.forEach(player => {
             player.write(packet);
+        });
+    }
+
+    play() {
+        // this.playing = true;
+        this.entities.ofType('GameTimer')[0].start();
+    }
+
+    spawnPassenger() {
+        let pos = arrayRandom(this.pickup_spots);
+
+        return this.spawnEntity(Passenger, pos.x, pos.y);
+        // return this.spawnEntity()
+    }
+
+    gameOver(dc = false, dcd_player = '') {
+        this.playing = false;
+        this.timer.started = false;
+
+        let winner = '';
+        let best_score = 0;
+
+        this.players.forEach(p => {
+            if (!dc && p.score > best_score) {
+                best_score = p.score;
+                winner = p.name;
+            }
+            else if (dc && p.name != dcd_player) {
+                winner = p.name;
+            }
+        });
+
+        let reason = dc ? `${dcd_player} disconnected!` : 'Game over!';
+
+        this.players.forEach(p => {
+            p.sendGameOver(`${winner} wins!`, reason);
         });
     }
     

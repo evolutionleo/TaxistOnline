@@ -21,3 +21,5 @@ global.friend_requests = []
 global.ping = -1
 global.start_server_time = -1
 global.start_local_time = -1
+
+global.gameover_string = ""

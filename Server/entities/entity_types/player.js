@@ -49,7 +49,7 @@ export default class PlayerEntity extends PhysicsEntity {
         return this.collider.getAABBAsBBox();
     }
     
-    inputs = defaultInputs;
+    inputs = Object.assign({}, defaultInputs);
     
     is_solid = true;
     
@@ -85,7 +85,10 @@ export default class PlayerEntity extends PhysicsEntity {
     }
     
     create() {
-        this.spawned_passenger = this.room.spawnEntity(Passenger, 300, 200);
+        this.spawned_passenger = this.room.spawnPassenger();
+        this.on('remove', () => {
+            this.spawned_passenger?.die();
+        });
 
         super.create();
     }
@@ -161,10 +164,7 @@ export default class PlayerEntity extends PhysicsEntity {
 
                 this.progress = 0;
 
-                this.spawned_passenger = this.room.spawnEntity(Passenger, Math.random() * 1920 * 2, Math.random() * 1080 * 2);
-                this.on('remove', () => {
-                    this.spawned_passenger?.die();
-                });
+                this.spawned_passenger = this.room.spawnPassenger();
             }
 
         }
@@ -174,8 +174,14 @@ export default class PlayerEntity extends PhysicsEntity {
     }
     
     update(dt) {
+        if (!this.room.playing) {
+            this.inputs = Object.assign({}, defaultInputs);
+        }
+
         this.movement(dt);
         this.handleDelivery(dt);
+
+        this.client.score = this.gold;
         super.update(dt);
     }
 }

@@ -1,4 +1,4 @@
-import { lobbyList } from '#concepts/lobby';
+import { lobbyCreate, lobbyList } from '#concepts/lobby';
 
 export default class MatchMaker {
     static queue = [];
@@ -26,10 +26,14 @@ export default class MatchMaker {
         lobbyList().forEach((lobby) => {
             // you can add additional checks for user rank, etc.
             // and your own matchmaking logic
-            if (!lobby.full) {
+            if (!lobby.full && lobby.status === 'open') {
                 match_lobby = lobby;
             }
         });
+
+        if (match_lobby === null) {
+            match_lobby = lobbyCreate();
+        }
         
         return match_lobby;
     }

@@ -75,8 +75,13 @@ var l = array_length(entities)
 // for each entity
 for(var i = 0; i < l; i++) {
 	var entity = entities[i]
-				
 	var uuid = entity.id
+	
+	// ignore removed entities
+	if (variable_struct_exists(global.removed_entities, uuid)) {
+		continue
+	}
+	
 	var type = asset_get_index(entity.obj)
 	if (type == -1) { // object with this type doesn't exist
 		if (ALLOW_UKNOWN_ENTITIES)

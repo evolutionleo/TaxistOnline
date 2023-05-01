@@ -42,5 +42,5 @@ addHandler("lobby leave", function(data) {
 	sendRequestLobbies()
 	
 	// add your handle for lobby kick/leave logic here
-	//room_goto(rMenu)
+	room_goto(rMenu)
 })

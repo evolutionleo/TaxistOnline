@@ -1,7 +1,7 @@
 import Entity from "#concepts/entity";
 import Room from "#concepts/room";
 import PlayerEntity from "./player.js";
-import { degtorad, vec_dir } from '#util/maths';
+import { arrayRandom, degtorad, vec_dir } from '#util/maths';
 
 export default class Passenger extends Entity {
     static type = 'Passenger';
@@ -42,8 +42,9 @@ export default class Passenger extends Entity {
     create() {
         this.image = Math.floor(Math.random() * 6);
         this.angle = Math.random() * 360;
-        this.destination.x = Math.random() * 3840;
-        this.destination.y = Math.random() * 2160;
+        this.destination = arrayRandom(this.room.destinations);
+        // this.destination.x = Math.random() * 3840;
+        // this.destination.y = Math.random() * 2160;
 
         let dx = this.destination.x - this.x;
         let dy = this.destination.y - this.y;
@@ -74,7 +75,7 @@ export default class Passenger extends Entity {
         if (this.picked_up_by !== null) {
             p = this.picked_up_by;
 
-            if (!this.picked_up_by.inputs.kinteract) {
+            if (!this.picked_up_by.inputs.kinteract || !this.placeMeeting(this.x, this.y, this.picked_up_by)) {
                 this.picked_up_by.progress = 0;
                 this.progress = 0;
                 this.picked_up_by = null;
