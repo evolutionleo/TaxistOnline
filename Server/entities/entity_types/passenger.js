@@ -50,7 +50,7 @@ export default class Passenger extends Entity {
         let dy = this.destination.y - this.y;
 
         this.distance = Math.sqrt(dx*dx + dy*dy);
-        this.reward = Math.ceil(this.distance * 0.05);
+        this.reward = 30 + Math.ceil(this.distance * 0.05);
 
         super.create();
 

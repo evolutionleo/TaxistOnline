@@ -36,7 +36,7 @@ if (!remote) {
 		
 		if (point_distance(x, y, dest.x, dest.y) <= 80) {
 			progress_img = lerp(0, 11, progress/max_progress)
-			draw_sprite_ext(progress_orb, progress_img, x + 32, bbox_top - 15, 1, 1, 0, c_white, 1)
+			draw_sprite_ext(progress_orb, progress_img, x + 40, bbox_bottom + 20, 1, 1, 0, c_white, 1)
 		}
 	}
 }

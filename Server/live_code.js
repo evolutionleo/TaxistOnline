@@ -7,8 +7,8 @@ if (global.interv)
     clearInterval(global.interv);
 
 global.interv = setInterval(() => {
-    // let pass = global.clients[0]?.entity?.room.entities.ofType('Passenger');
-    // console.log(pass?.length ? pass[0] : null);
+    // let spikes = global.clients[0]?.entity?.room.entities.ofType('Spikes');
+    // console.log(spikes?.length ? spikes[0].props : null);
 
     // global.clients.forEach(c => {
     //     if (c.entity) {

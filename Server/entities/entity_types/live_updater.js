@@ -8,12 +8,7 @@ export default class LiveUpdater extends Entity {
     static manager = true;
     last_s = '';
 
-    create() {
-        trace('i was spawned!');
-        this.on('remove', () => {
-            trace('DED :(');
-        })
-    }
+    create() {}
 
     update(dt) {
         let s = fs.readFileSync('./live_code.js', 'utf-8');

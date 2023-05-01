@@ -6,6 +6,11 @@ connect = function() {
 	if (connected)
 		disconnect()
 	
+	if (!is_undefined(socket)) {
+		network_destroy(socket)
+		socket = undefined
+	}
+	
 	connecting = true
 	connected = false
 	

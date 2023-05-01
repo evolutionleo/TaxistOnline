@@ -9,6 +9,8 @@ if (!remote) {
 	//kinteract = keyboard_check(ord("E")) || keyboard_check(ord("Z"))
 	kinteract = true
 	
+	ktrap = keyboard_check_pressed(ord("F"))
+	
 	move_x = kright - kleft
 	move_y = kdown - kup
 	

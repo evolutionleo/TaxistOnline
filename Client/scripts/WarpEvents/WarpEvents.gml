@@ -18,7 +18,10 @@ function onIncompatible(server_game_version) {
 // called when the current instance of the game is the dual instance (created by oDualInstance)
 function onSecondWindow() {
 	// you probably want to add some logic here to disable music, etc.
+	global.second_window = true
 }
+
+global.second_window = false
 
 
 function leaveGame() {

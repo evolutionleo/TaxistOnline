@@ -7,6 +7,8 @@ addHandler('player controls', (c, data) => {
         return;
     
     c.entity.inputs = {
+        ...c.entity.inputs,
+        
         move: data.move,
         
         kright: data.kright,
@@ -14,8 +16,11 @@ addHandler('player controls', (c, data) => {
         kup: data.kup,
         kdown: data.kdown,
         
-        kinteract: data.kinteract
+        kinteract: data.kinteract//,
+        // ktrap: data.ktrap
     };
+
+    c.entity.inputs.ktrap ||= data.ktrap;
     
     c.entity.inputs.move.x = clamp(c.entity.inputs.move.x, -1, 1);
     c.entity.inputs.move.y = clamp(c.entity.inputs.move.y, -1, 1);

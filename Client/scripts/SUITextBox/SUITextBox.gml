@@ -35,7 +35,8 @@ function SUITextInput(x, y, w = 192, h = 48, text = "", placeholder = "", props 
 		cursor_element.hoverable = false
 		
 		box_element.bg_alpha = 0
-		placeholder_element.alpha = .5
+		placeholder_element.font = props.font
+		placeholder_element.alpha = 1
 		text_element.halign = fa_left
 		text_element.valign = fa_middle
 		placeholder_element.halign = fa_left

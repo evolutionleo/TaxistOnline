@@ -4,7 +4,7 @@ function SUIBox(x, y, w, h, props = {}, children = []) : SUI_ELEMENT {
 	
 	bg_color = c_black
 	bg_alpha = 1.0
-	border_w = 1
+	border_w = 4
 	border_color = c_white
 	border_alpha = 1.0
 	

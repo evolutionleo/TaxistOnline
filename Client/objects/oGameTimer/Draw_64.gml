@@ -34,6 +34,8 @@ if (countdown > -1) {
 	
 	if real(mins) > 0
 		secs = string(floor(real(secs)))
+	else
+		draw_set_color(c_red)
 	
 	if real(secs) < 10
 		secs = "0" + secs

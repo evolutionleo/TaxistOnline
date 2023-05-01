@@ -136,6 +136,7 @@ export default class Lobby extends EventEmitter {
      * @param {Client} player
      */
     addIntoPlay(player) {
+        this.status = 'playing';
         if (player.lobby === this) {
             player.onPlay();
         }

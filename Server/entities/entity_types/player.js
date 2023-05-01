@@ -1,6 +1,7 @@
 import PhysicsEntity from './../physics_entity.js';
 import { angle_diff, angle_normalize, clamp, degtorad, lengthdir, lengthdir_x, lengthdir_y, vec_dir, vec_len } from '#util/maths'
 import Passenger from './passenger.js';
+import Spikes from './spikes.js';
 
 export const defaultInputs = {
     move: {
@@ -12,7 +13,8 @@ export const defaultInputs = {
     kup: 0,
     kdown: 0,
 
-    kinteract: 0
+    kinteract: 0,
+    ktrap: 0
 };
 
 
@@ -81,12 +83,12 @@ export default class PlayerEntity extends PhysicsEntity {
 
     usables = {
         reroll: 0,
-        
+        spikes: 3
     };
 
     effects = {
         stun: 0,
-        flip: 0
+        reverse_input: 0
     };
     
     constructor(room, x = 0, y = 0, client) {
@@ -111,9 +113,11 @@ export default class PlayerEntity extends PhysicsEntity {
     movement(dt) {
         let prev_dir = this.dir;
         let fwd = 1;
+        let rev = (this.effects.reverse_input > 0 ? -1 : 1);
+        let stun = (this.effects.stun > 0 ? 0 : 1);
 
 
-        this.dir += -this.inputs.move.x * this.rot_spd * dt; /* * (Math.sqrt(this.spd_val) / 20)*/;
+        this.dir += -this.inputs.move.x * this.rot_spd * dt * rev * stun; /* * (Math.sqrt(this.spd_val) / 20)*/;
         this.dir = angle_normalize(this.dir);
 
         this.angle = degtorad(360-this.dir);
@@ -182,6 +186,29 @@ export default class PlayerEntity extends PhysicsEntity {
             this.progress = 0;
         }
     }
+
+    handlePowerups(dt) {
+        if (this.inputs.ktrap) {
+            // trace('we trapin');
+            if (this.usables.spikes > 0) {
+                this.usables.spikes -= 1;
+                let spikes = this.room.spawnEntity(Spikes, this.x, this.y);
+                spikes.owner_name = this.name;
+            }
+
+            this.inputs.ktrap = false;
+        }
+    }
+
+    handleEffects(dt) {
+        this.effects.reverse_input -= dt;
+        this.effects.stun -= dt;
+
+        if (this.effects.stun > 0) {
+            this.spd.x = 0;
+            this.spd.y = 0;
+        }
+    }
     
     update(dt) {
         if (!this.room.playing) {
@@ -190,6 +217,8 @@ export default class PlayerEntity extends PhysicsEntity {
 
         this.movement(dt);
         this.handleDelivery(dt);
+        this.handlePowerups(dt);
+        this.handleEffects(dt);
 
         this.client.score = this.gold;
         super.update(dt);

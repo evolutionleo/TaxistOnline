@@ -1,6 +1,6 @@
 /// @desc
 
-mute = false
+mute = global.second_window
 
 music_inst = undefined
 
