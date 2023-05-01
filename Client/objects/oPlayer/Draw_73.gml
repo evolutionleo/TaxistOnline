@@ -6,7 +6,8 @@ draw_set_font(fUsername)
 draw_set_color(c_white)
 draw_set_alpha(1)
 //draw_set_color(c_yellow)
-draw_text((bbox_right + bbox_left) / 2, bbox_top - 35, string("{0} ({1})", self.name, self.gold))
+//draw_text((bbox_right + bbox_left) / 2, bbox_top - 35, string("{0} ({1})", self.name, self.gold))
+draw_text((bbox_right + bbox_left) / 2, bbox_top - 35, self.name)
 
 
 if (!remote) {

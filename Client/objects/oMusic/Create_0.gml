@@ -1,6 +1,6 @@
 /// @desc
 
-mute = true
+mute = false
 
 music_inst = undefined
 

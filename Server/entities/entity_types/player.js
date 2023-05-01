@@ -78,6 +78,16 @@ export default class PlayerEntity extends PhysicsEntity {
     max_progress = .75;
     
     spawned_passenger = null;
+
+    usables = {
+        reroll: 0,
+        
+    };
+
+    effects = {
+        stun: 0,
+        flip: 0
+    };
     
     constructor(room, x = 0, y = 0, client) {
         super(room, x, y);
@@ -85,10 +95,10 @@ export default class PlayerEntity extends PhysicsEntity {
     }
     
     create() {
-        this.spawned_passenger = this.room.spawnPassenger();
-        this.on('remove', () => {
-            this.spawned_passenger?.die();
-        });
+        // this.spawned_passenger = this.room.spawnPassenger();
+        // this.on('remove', () => {
+        //     this.spawned_passenger?.die();
+        // });
 
         super.create();
     }
@@ -164,7 +174,7 @@ export default class PlayerEntity extends PhysicsEntity {
 
                 this.progress = 0;
 
-                this.spawned_passenger = this.room.spawnPassenger();
+                // this.spawned_passenger = this.room.spawnPassenger();
             }
 
         }

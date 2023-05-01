@@ -1,5 +1,5 @@
 import { addValidator } from "#concepts/validator";
 
 addValidator('set name', {
-    name: { type: 'string', max: 12 }
+    name: { type: 'string', max: 16 }
 });

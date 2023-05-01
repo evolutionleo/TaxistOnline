@@ -23,3 +23,5 @@ global.start_server_time = -1
 global.start_local_time = -1
 
 global.gameover_string = ""
+
+global.last_nickame = "Guest"

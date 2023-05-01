@@ -24,7 +24,7 @@ network_set_config(network_config_use_non_blocking_socket, true)
 global.server_time_delay = 100
 #macro SERVER_TIME_DELAY global.server_time_delay
 // if set to true, global.server_time_delay will automatically increase when lag spikes occur
-#macro AUTOADJUST_SERVER_DELAY true
+#macro AUTOADJUST_SERVER_DELAY false
 
 
 #macro SOCKET_TYPE SOCKET_TYPES.WS

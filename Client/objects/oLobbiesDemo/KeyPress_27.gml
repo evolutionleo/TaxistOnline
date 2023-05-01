@@ -1,3 +1,4 @@
 /// @desc Go back to the main menu
 
-room_goto(rMenu)
+leaveGame()
+//room_goto(rMenu)

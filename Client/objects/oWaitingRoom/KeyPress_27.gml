@@ -1,3 +1,4 @@
 /// @desc
 
-room_goto(rMenu)
+leaveGame()
+//room_goto(rMenu)

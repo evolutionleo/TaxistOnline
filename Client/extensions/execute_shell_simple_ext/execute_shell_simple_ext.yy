@@ -60,8 +60,8 @@
   "optionsFile": "options.json",
   "packageId": "",
   "parent": {
-    "name": "Extensions",
-    "path": "folders/Game/Extensions.yy",
+    "name": "Game",
+    "path": "folders/Game.yy",
   },
   "productId": "",
   "sourcedir": "",

@@ -122,8 +122,9 @@ export default class Lobby extends EventEmitter {
         
         // close if a player leaves from the lobby?
         if (global.config.lobby.closeOnLeave) {
-            this.rooms[0].gameOver(true, player.name);
-            // this.close();
+            if (this.rooms[0].playing) {
+                this.rooms[0].gameOver(true, player.name);
+            }
         }
 
         if (this.players.length === 0) {

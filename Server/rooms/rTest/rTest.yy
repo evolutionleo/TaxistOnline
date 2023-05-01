@@ -94,7 +94,6 @@
     {"name":"inst_6ABCE853","path":"rooms/rTest/rTest.yy",},
     {"name":"inst_6AC4E906","path":"rooms/rTest/rTest.yy",},
     {"name":"inst_39F6A332","path":"rooms/rTest/rTest.yy",},
-    {"name":"inst_289761EA","path":"rooms/rTest/rTest.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -102,7 +101,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1877875B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oPingManager","path":"objects/oPingManager/oPingManager.yy",},"properties":[],"rotation":0.0,"scaleX":5.0,"scaleY":5.0,"x":0.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6BE3746F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},"properties":[],"rotation":0.0,"scaleX":11.0,"scaleY":9.0,"x":80.0,"y":-32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_39F6A332","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oGameOver","path":"objects/oGameOver/oGameOver.yy",},"properties":[],"rotation":0.0,"scaleX":6.8647118,"scaleY":5.5,"x":276.0,"y":24.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_289761EA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oLeaderboard","path":"objects/oLeaderboard/oLeaderboard.yy",},"properties":[],"rotation":0.0,"scaleX":7.8125,"scaleY":7.5416718,"x":18.0,"y":131.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Stops","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1F5B4DF1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oPassengerPickupSpot","path":"objects/oPassengerPickupSpot/oPassengerPickupSpot.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":3544.0,"y":1763.0,},

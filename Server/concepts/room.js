@@ -96,13 +96,17 @@ class Room extends EventEmitter {
         this.unwrap(this.map.contents); // || '[]');
 
         for(let etype of global.manager_entities) {
-            trace(this.spawnEntity(etype, 0, 0));
+            this.spawnEntity(etype, 0, 0);
         }
         
         this.pickup_spots = this.entities.ofType('PickupSpot').map(e => ({ x: e.x, y: e.y }));
         this.destinations = this.entities.ofType('LeaveSpot').map(e => ({ x: e.x, y: e.y }));
 
         this.timer = this.entities.ofType('GameTimer')[0];
+
+        for(let i = 0; i < this.lobby.max_players / 2; i++) {
+            this.spawnPassenger();
+        }
     }
     
     // create entities from the contents string
@@ -324,8 +328,11 @@ class Room extends EventEmitter {
     spawnPassenger() {
         let pos = arrayRandom(this.pickup_spots);
 
-        return this.spawnEntity(Passenger, pos.x, pos.y);
+        let p = this.spawnEntity(Passenger, pos.x, pos.y);
+        p.on('remove', () => { this.spawnPassenger(); });
         // return this.spawnEntity()
+
+        return p;
     }
 
     gameOver(dc = false, dcd_player = '') {
